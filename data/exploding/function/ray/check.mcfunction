@@ -24,3 +24,5 @@ execute as @s[tag=hit_block_check] at @s anchored eyes run function exploding:ra
 
 # If nothing was hit
 execute as @s[tag=!hit_block] at @s anchored eyes positioned ^ ^ ^100 run function exploding:explode
+
+scoreboard players set @s ExplodingTimer 20
