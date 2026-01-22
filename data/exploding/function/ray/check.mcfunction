@@ -5,7 +5,8 @@ execute if data entity @s {Health:0.0f} run return fail
 # Initialize steps
 scoreboard players set @s RaycastSteps 200
 
-tag @s remove hit_block
+tag @s add raycaster
+tag @s remove ray_hit
 tag @s remove hit_block_check
 tag @s remove hit_player
 
@@ -23,6 +24,8 @@ scoreboard players reset @s RayHitD
 execute as @s[tag=hit_block_check] at @s anchored eyes run function exploding:ray/movefine
 
 # If nothing was hit
-execute as @s[tag=!hit_block] at @s anchored eyes positioned ^ ^ ^50 run function exploding:explode
+execute as @s[tag=!ray_hit] at @s anchored eyes positioned ^ ^ ^50 run function exploding:explode
 
 scoreboard players set @s ExplodingTimer 5
+
+tag @s remove raycaster
